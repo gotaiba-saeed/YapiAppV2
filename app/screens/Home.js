@@ -20,10 +20,10 @@ class Home extends Component {
                     rightIconName="ios-log-out"
                 />
                 <Content>
-                    <BlockButton ButtonText="Account Summary" >
+                    <BlockButton ButtonText="Account Summary" onPress={()=>this.props.navigation.push("AccountSummary")} >
                         <Icon style={{ color: '#fff' }} name="id-card-o" size={25} />
                     </BlockButton>
-                    <BlockButton ButtonText="Transfer Funds" >
+                    <BlockButton ButtonText="Transfer Funds" onPress={()=>this.props.navigation.push("TransferFund")}>
                         <Icon style={{ color: '#fff' }} name="refresh" size={25} />
                     </BlockButton>
                 </Content>

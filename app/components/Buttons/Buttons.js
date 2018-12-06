@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Text,View,TouchableOpacity} from 'react-native';
+import {Text,View,TouchableOpacity,Dimensions} from 'react-native';
 import styles from './styles';
-
+import Icon from '@expo/vector-icons/FontAwesome';
+const {width:WIDTH}=Dimensions.get('window')
 const getStyles =({
     theme,
     size,
@@ -27,15 +28,7 @@ const getStyles =({
     if(rounded)
     {
         containerStyles.push(styles.containerRounded);
-    }
-    if(size==='block')
-    {
-        containerStyles.push(styles.containerBlock);
-    }
-    if(size==='half')
-    {
-        containerStyles.push(styles.containerHalf)
-    }
+    }    
     if(widthSize)
     {
         containerStyles.push({width:widthSize})
@@ -50,26 +43,24 @@ class Buttons extends React.Component{
         disabled:PropTypes.bool,
         outline:PropTypes.bool,
         rounded:PropTypes.bool,
-        children:PropTypes.any,
         hasIcon:PropTypes.bool,
         leftIcon:PropTypes.bool,
         IconName:PropTypes.string,
-        widthSize:PropTypes.string,
-        size:PropTypes.oneOf(['normal','block','half']),
+        widthSize:PropTypes.number,
         onPress:PropTypes.func.isRequired,
         theme:PropTypes.oneOf(['default','primary','secondary']),
     };
     static defaultProps={
         theme:'default',
-        size:'normal',
         outline:false,
         hasIcon:false,
         rounded:false,
+        widthSize:WIDTH-90,
         leftIcon:true,
         disabled:false    
     }
     render(){
-        const {text,children,onPress,disabled,...rest}=this.props;
+        const {text,IconName,onPress,disabled,...rest}=this.props;
         const {textStyles,containerStyles}=getStyles({disabled,...rest});
         if(this.props.hasIcon)
         {
@@ -78,7 +69,7 @@ class Buttons extends React.Component{
             return(         
                 <TouchableOpacity style={containerStyles} onPress={onPress} disabled={disabled}>
                     <View style={{flex:1,flexDirection:'row',alignItems:'center',justifyContent:'center'}}>
-                        <Icon name={IconName} size={20}/>
+                        <Icon name={IconName} style={{color:'#fff',paddingRight:10}} size={20}/>
                         <Text style={textStyles}>{text}</Text> 
                     </View>   
                 </TouchableOpacity>      
@@ -87,10 +78,12 @@ class Buttons extends React.Component{
             else
             {
                 return(         
-                    <TouchableOpacity style={containerStyles} onPress={onPress} disabled={disabled}>                    
-                        <Text style={textStyles}>{text}</Text>
-                        {children}    
-                    </TouchableOpacity>      
+                    <TouchableOpacity style={containerStyles} onPress={onPress} disabled={disabled}>
+                    <View style={{flex:1,flexDirection:'row',alignItems:'center',justifyContent:'center'}}>                
+                        <Text style={textStyles}>{text}</Text> 
+                        <Icon name={IconName} style={{color:'#fff',paddingLeft:10}} size={20}/>
+                    </View>   
+                </TouchableOpacity>     
                     )   
             }          
         }

@@ -9,7 +9,7 @@ import BasicRegister from './screens/BasicRegister';
 import CodeActivation from './screens/CodeActivation';
 import CardRegister from './screens/CardRegister';
 import AccountSummary from './screens/AccountSummary';
-import TransferFund from './screens/transferFund';
+import TransferFund from './screens/TransferFund';
 
 EStyleSheet.build({
     $PrimaryBlue:'#53acd3',
@@ -29,7 +29,7 @@ const AppStackNavigator = createStackNavigator({
     CardRegister: CardRegister,
     CodeActivation: CodeActivation,
     AccountSummary: AccountSummary,
-    //TransferFund: TransferFund,
+    TransferFund: TransferFund,
     //Profile: Profile
 },
     {
