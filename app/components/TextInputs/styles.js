@@ -8,6 +8,32 @@ export default EStyleSheet.create({
         top:15,
         color:'$SecondaryBlue'
     },
+    containerDefault:{
+        borderBottomWidth: 2,
+        borderBottomColor: '$SecondaryBlue',
+        color:'$black',    
+        height:35,
+        marginVertical: 10,  
+        paddingLeft:20          
+    },
+    containerOutline:{
+        borderWidth:1,    
+        height:45,
+        borderColor:"$PrimaryBlue",
+    },
+    containerRounded:{
+        borderRadius:4,
+    },
+    containerPIN:{
+        borderWidth:1,
+        borderColor:"$PrimaryBlue",
+        borderBottomWidth: 1,
+        textAlign:"center",     
+        paddingLeft:0    
+    },
+    containerWithIcon:{
+        paddingLeft: 45,
+    },
     normalInput:{
         borderBottomWidth: 2,
         borderBottomColor: '$SecondaryBlue',

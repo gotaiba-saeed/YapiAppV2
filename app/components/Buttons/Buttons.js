@@ -20,6 +20,11 @@ const getStyles =({
         containerStyles.push(styles.containerPrimary);
         textStyles.push(styles.textPrimary)
     }
+    if(theme==='green')
+    {
+        containerStyles.push(styles.containerGreen);
+        textStyles.push(styles.textPrimary)
+    }
     if(outline)
     {
         containerStyles.push(styles.containerPrimaryOutline)
@@ -28,7 +33,11 @@ const getStyles =({
     if(rounded)
     {
         containerStyles.push(styles.containerRounded);
-    }    
+    }  
+    if(size==='normal')
+    {
+        containerStyles.push({width:WIDTH-100})
+    }  
     if(widthSize)
     {
         containerStyles.push({width:widthSize})
@@ -45,17 +54,17 @@ class Buttons extends React.Component{
         rounded:PropTypes.bool,
         hasIcon:PropTypes.bool,
         leftIcon:PropTypes.bool,
+        size:PropTypes.oneOf(['normal']),
         IconName:PropTypes.string,
         widthSize:PropTypes.number,
         onPress:PropTypes.func.isRequired,
-        theme:PropTypes.oneOf(['default','primary','secondary']),
+        theme:PropTypes.oneOf(['default','primary','green']),
     };
     static defaultProps={
         theme:'default',
         outline:false,
         hasIcon:false,
         rounded:false,
-        widthSize:WIDTH-90,
         leftIcon:true,
         disabled:false    
     }
@@ -68,7 +77,7 @@ class Buttons extends React.Component{
             {
             return(         
                 <TouchableOpacity style={containerStyles} onPress={onPress} disabled={disabled}>
-                    <View style={{flex:1,flexDirection:'row',alignItems:'center',justifyContent:'center'}}>
+                    <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center'}}>
                         <Icon name={IconName} style={{color:'#fff',paddingRight:10}} size={20}/>
                         <Text style={textStyles}>{text}</Text> 
                     </View>   
@@ -79,7 +88,7 @@ class Buttons extends React.Component{
             {
                 return(         
                     <TouchableOpacity style={containerStyles} onPress={onPress} disabled={disabled}>
-                    <View style={{flex:1,flexDirection:'row',alignItems:'center',justifyContent:'center'}}>                
+                    <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center'}}>                
                         <Text style={textStyles}>{text}</Text> 
                         <Icon name={IconName} style={{color:'#fff',paddingLeft:10}} size={20}/>
                     </View>   

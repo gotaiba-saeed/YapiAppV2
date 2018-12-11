@@ -26,7 +26,7 @@ export default EStyleSheet.create({
     Label:{
         fontSize:16,
         fontWeight:'bold',
-        paddingRight:10,
+        paddingRight:5,
         color:'$PrimaryBlue'
     },
     DataText:{

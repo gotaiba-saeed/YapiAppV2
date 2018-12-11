@@ -25,7 +25,7 @@ export default EStyleSheet.create({
         borderWidth:1,
         borderRadius:4,
         marginHorizontal: 20,
-        marginVertical:15,    
+        marginVertical:5,    
         borderColor:'$PrimaryBlue'
     },
     textDefault:{
@@ -44,6 +44,10 @@ export default EStyleSheet.create({
     },
     containerPrimary:{
         backgroundColor:'$PrimaryBlue',
+        borderColor:'transparent'
+    },
+    containerGreen:{
+        backgroundColor:'$LightGreen',
         borderColor:'transparent'
     },
     textPrimary:{

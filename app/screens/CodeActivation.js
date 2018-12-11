@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet,KeyboardAvoidingView, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet,KeyboardAvoidingView, Text, View,ActivityIndicator, TouchableOpacity } from 'react-native';
 import { Container } from '../components/Container';
 import { PrimaryHeader } from '../components/Headers';
 import {DefaultInput,PhoneInput,CodeInput} from '../components/TextInputs';
@@ -17,7 +17,8 @@ class CodeActivation extends Component {
         super(props);
         this.state = {
           Code: 0,         
-          ValidCode:true,      
+          ValidCode:true, 
+          UserInfo:this.props.navigation.state.params.userInfo  
         };
       }
       GetVerificationCode=(VerCode)=>{
@@ -25,13 +26,16 @@ class CodeActivation extends Component {
         this.setState({code:VerCode});
         console.log("Code Length: "+codeLength);
         if(codeLength==4){
-            this.props.navigation.navigate('Login')
+            this.props.navigation.navigate('CardRegister',{userInfo:this.state.UserInfo})
+        }
+        ResendCode=()=>{
+            //TODO: Apply fetch api to resend code
         }
     }
       
     render() {
-        const { navigation } = this.props;
-        const paramData = navigation.getParam('data', '912130176');
+        //const { navigation } = this.props.navigation.state;
+        //const paramData = navigation.getParam('data', '912130176');
         return (
             <PrimaryHeader
                 LeftText="Back"
@@ -42,10 +46,11 @@ class CodeActivation extends Component {
             >
                 <Content>
                     <KeyboardAvoidingView behavior="padding" keyboardShouldPersistTaps='handled' style={{ marginTop: 30 , alignItems: 'center' }}>
+                        
                         <Text style={{textAlign:'center'}}>
                             A verification code has been sent to the phone number you provided
                         </Text>                       
-                        <NumberText NumText={paramData} />
+                        <NumberText NumText={this.state.UserInfo.PhoneView} />
                         <View style={{marginTop: 20,alignItems: 'center'}}>
                             <Text>Verification Code</Text>
                             <CodeInput placeholder="4 digit"
@@ -53,7 +58,7 @@ class CodeActivation extends Component {
                              onChangeText={VerCode=>this.GetVerificationCode(VerCode)} />                              
                         </View>                                
                         <View>
-                            <VoidButton ButtonText="Resend Code"/>
+                            <VoidButton ButtonText="Resend Code" onPress={this.ResendCode}/>
                         </View>                                                                            
                     </KeyboardAvoidingView>
                 </Content>

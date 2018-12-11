@@ -10,6 +10,7 @@ import CodeActivation from './screens/CodeActivation';
 import CardRegister from './screens/CardRegister';
 import AccountSummary from './screens/AccountSummary';
 import TransferFund from './screens/TransferFund';
+import TestAnimated from './screens/TestAnimation';
 
 EStyleSheet.build({
     $PrimaryBlue:'#53acd3',
@@ -30,11 +31,12 @@ const AppStackNavigator = createStackNavigator({
     CodeActivation: CodeActivation,
     AccountSummary: AccountSummary,
     TransferFund: TransferFund,
+    TestAnimated:TestAnimated
     //Profile: Profile
 },
     {
         headerMode:'none',
-        initialRouteName: "AccountSummary",
+        initialRouteName: "TestAnimated",
         navigationOptions: {
             gesturesEnabled: false,
         },
