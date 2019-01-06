@@ -1,4 +1,3 @@
-import UUIDGenerator from 'react-native-uuid-generator';
 var root="http://192.168.1.105:8088/api/";
 
 function formEncode(obj) {
@@ -7,7 +6,25 @@ function formEncode(obj) {
 	str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
 	return str.join("&");
 }
+function GetTranDateTime () {
+    now = new Date();
+    year = "" + now.getFullYear();
+    month = "" + (now.getMonth() + 1); if (month.length == 1) { month = "0" + month; }
+    day = "" + now.getDate(); if (day.length == 1) { day = "0" + day; }
+    hour = "" + now.getHours(); if (hour.length == 1) { hour = "0" + hour; }
+    minute = "" + now.getMinutes(); if (minute.length == 1) { minute = "0" + minute; }
+    second = "" + now.getSeconds(); if (second.length == 1) { second = "0" + second; }
+    return day + month + year + hour + minute + second;
+}
 export const root="http://192.168.1.105:8088/api/"
+export const Store={
+    PAN:"",
+    Token:"",
+    Pass:"",
+    Username:"",
+    Phone:"",
+    Email:""
+}
 export const Enums={
         RegType:{
             CardWithoutPass:"10",
@@ -42,6 +59,23 @@ export const Enums={
             Savings:"11",
             Credit:"31",
             Bouns:"91"        
+        },
+        PaymentMethodId:{
+            cash:1,
+            cheque:2,
+            electronic:3
+        },
+        RequestedServiceId:{
+            RequestInvoice_UC_001:1,
+            GetInvoiceInfo_UC_002:2,
+            IssueReceipt_UC_003:3,
+            QueryReceipt_UC_004:4,
+            IssueReceipt_QueryReceipt_UC_005:5,
+            GetInvoiceInfo_IssueReceipt_UC_006:6,
+            GetInvoiceInfo_IssueReceipt_QueryRecepit_UC_007:7,
+            RequestInvoice_IssueReceipt_UC_008:8,
+            RequestInvoice_IssueReceipt_QueryReceipt_UC_009:9
+
         }
 
 }
@@ -70,18 +104,6 @@ export function AddUsers(UserJson,done)
         console.log("Fetch Registration Error: "+err);
     });
 }
-export function TranDateTime () {
-    now = new Date();
-    year = "" + now.getFullYear();
-    month = "" + (now.getMonth() + 1); if (month.length == 1) { month = "0" + month; }
-    day = "" + now.getDate(); if (day.length == 1) { day = "0" + day; }
-    hour = "" + now.getHours(); if (hour.length == 1) { hour = "0" + hour; }
-    minute = "" + now.getMinutes(); if (minute.length == 1) { minute = "0" + minute; }
-    second = "" + now.getSeconds(); if (second.length == 1) { second = "0" + second; }
-    return day + month + year + hour + minute + second;
-}
-export function GenerateUUID(){
-    UUIDGenerator.getRandomUUID((uuid) => {
-        return uuid;
-      });
-}
+
+export const TranDateTime=GetTranDateTime()
+

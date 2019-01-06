@@ -14,7 +14,13 @@ export default EStyleSheet.create({
     },
     TitleText: {
         alignSelf: 'flex-start',
-        marginLeft: 10,
+        marginLeft: 10,   
+        marginBottom:10,
+        color: '$TitleBlue',
+        letterSpacing: 1,
+        fontWeight: '600'
+    },
+    TitleTextCenter:{
         color: '$TitleBlue',
         letterSpacing: 1,
         fontWeight: '600'

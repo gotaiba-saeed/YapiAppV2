@@ -61,6 +61,52 @@ export default EStyleSheet.create({
     textPrimaryOutline:{
         color:'$PrimaryBlue'
     },
+    ServiceContainer:{
+        alignItems:'center',
+        justifyContent:'center',
+        width:80, 
+    },
+    ServiceButton:{
+        width:60,
+        height:60,        
+        shadowColor: '#000',
+    shadowOffset: { width: 2, height: 1 },
+    shadowOpacity: 0.5,
+    shadowRadius: 2,
+        marginBottom:5,    
+        borderRadius:50,         
+        justifyContent:'center',
+        alignItems:'center'        
+    },
+    ServiceText:{
+        fontSize:12,                                 
+        textAlign:'center' 
+    },
+    BillButton:{
+        width:WIDTH/2,
+        alignItems:'center',       
+        height:140,
+        borderWidth:1,
+        borderColor:"#fff",
+        paddingVertical:10  
+    },
+    BillImage:{
+        width:50,
+        height:50,
+        resizeMode:'contain'
+    },
+    BillIcon:{
+        width:50,
+        height:50,
+        color:"#fff"
+    },
+    BillButtonText:{
+        fontSize:20,
+        letterSpacing:1,
+        color:'#fff',
+        fontWeight:'bold',
+        marginTop:20    
+    },
     fullButton:{
         backgroundColor:'$SecondaryBlue',
         flex:1,

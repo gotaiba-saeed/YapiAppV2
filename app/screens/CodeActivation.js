@@ -18,7 +18,8 @@ class CodeActivation extends Component {
         this.state = {
           Code: 0,         
           ValidCode:true, 
-          UserInfo:this.props.navigation.state.params.userInfo  
+          UserInfo:this.props.navigation.state.params.userInfo,
+          RegType:this.props.navigate.state.params.userInfo.RegType  
         };
       }
       GetVerificationCode=(VerCode)=>{
@@ -26,7 +27,13 @@ class CodeActivation extends Component {
         this.setState({code:VerCode});
         console.log("Code Length: "+codeLength);
         if(codeLength==4){
-            this.props.navigation.navigate('CardRegister',{userInfo:this.state.UserInfo})
+            if(this.state.RegType=='Account')
+                this.props.navigation.navigate('CardRegister',{userInfo:this.state.UserInfo})
+            else
+            {
+                //TODO: Apply Authintication Token
+                this.props.navigation.navigate('Home')
+            }
         }
         ResendCode=()=>{
             //TODO: Apply fetch api to resend code
