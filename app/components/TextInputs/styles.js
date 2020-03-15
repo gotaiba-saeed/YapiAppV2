@@ -9,7 +9,7 @@ export default EStyleSheet.create({
         color:'$SecondaryBlue'
     },
     containerDefault:{
-        borderBottomWidth: 2,
+        borderBottomWidth: 1,
         borderBottomColor: '$SecondaryBlue',
         color:'$black',    
         height:35,
@@ -35,7 +35,7 @@ export default EStyleSheet.create({
         paddingLeft: 45,
     },
     normalInput:{
-        borderBottomWidth: 2,
+        borderBottomWidth: 1,
         borderBottomColor: '$SecondaryBlue',
         color:'$black',
         width:WIDTH-100,

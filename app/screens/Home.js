@@ -25,14 +25,14 @@ class Home extends Component {
                             <ServiceButton IconName="file-text" text="Bill Payments" color="#995681" onPress={()=>this.props.navigation.push("BillPayments")}/>
                         </View>
                         <View style={styles.ServiceRow}>
-                            <ServiceButton IconName="qrcode" text="Scan QR" color="#ff4c65" onPress={()=>this.props.navigation.push("AccountSummary")}/>   
-                            <ServiceButton IconName="user-plus" text="Beneficiary" color="#fed766" onPress={()=>this.props.navigation.push("TransferFund")}/>                     
-                            <ServiceButton IconName="cubes" text="Service" color="#fa6900" onPress={()=>null}/>
+                            <ServiceButton IconName="qrcode" text="Scan QR" color="#ff4c65" onPress={()=>this.props.navigation.push("QRCodeScreen")}/>   
+                            <ServiceButton IconName="user-plus" text="Beneficiary" color="#fed766" onPress={()=>this.props.navigation.push("Beneficiary")}/>                     
+                            <ServiceButton IconName="cubes" text="Service" color="#fa6900" onPress={()=>this.props.navigation.push("Services")}/>
                         </View>  
                         <View style={styles.ServiceRow}>
-                            <ServiceButton IconName="money" text="Cardless Withdrawal" color="#0f5959" onPress={()=>this.props.navigation.push("AccountSummary")}/>
-                            <ServiceButton IconName="history" text="Transaction History" color="#f39cc3" onPress={()=>this.props.navigation.push("TransferFund")}/>                        
-                            <ServiceButton IconName="gears" text="Settings" color="#638ca6" onPress={()=>null}/>
+                            <ServiceButton IconName="money" text="Cardless Withdrawal" color="#0f5959" onPress={()=>this.props.navigation.push("CardlessWithdrawal")}/>
+                            <ServiceButton IconName="history" text="Transaction History" color="#f39cc3" onPress={()=>this.props.navigation.push("TranHistory")}/>                        
+                            <ServiceButton IconName="gears" text="Settings" color="#638ca6" onPress={()=>this.props.navigation.push("profile")}/>
                         </View>                                                    
                     {/* <BlockButton ButtonText="Account Summary" onPress={()=>this.props.navigation.push("AccountSummary")} >
                         <Icon style={{ color: '#fff' }} name="id-card-o" size={25} />

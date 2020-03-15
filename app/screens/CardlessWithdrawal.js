@@ -5,7 +5,7 @@ import { PrimaryHeader } from '../components/Headers';
 import { Content,H3 } from 'native-base';
 import {AddUsers,root,Store} from '../config';
 
-class Profile extends Component{
+class CardlessWithdrawal extends Component{
     static navigationOptions = {
         header: null
     }
@@ -15,7 +15,7 @@ class Profile extends Component{
                 LeftText="Back"
                 leftOnPress={() => this.props.navigation.navigate("Home")}
                 leftIconName="ios-arrow-back"
-                TitleText="Settings"
+                TitleText="Withdrawal"
                 hasRight={false}
             >
                 <Content contentContainerStyle={{ alignItems: 'center', marginTop: 30 }}>
@@ -24,11 +24,11 @@ class Profile extends Component{
                         justifyContent:'center',
                         alignItems:'center'
                     }}>
-                        <H3>Settings Page</H3>
+                        <H3>Cardless Withdrawal Page</H3>
                     </View>               
                 </Content>
             </PrimaryHeader>
         )
     }
 }
-export default Profile;
+export default CardlessWithdrawal;

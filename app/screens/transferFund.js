@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { StyleSheet, Modal, TextInput, ScrollView, Text,KeyboardAvoidingView, View, Dimensions } from 'react-native';
 import { Container } from '../components/Container';
 import { PrimaryHeader } from '../components/Headers';
-import { DefaultInput, Textbox, CodeInput } from '../components/TextInputs';
+import { DefaultInput, Textbox, CodeInput,AmountInput } from '../components/TextInputs';
 import { Title, ErrorText,TextList } from '../components/Texts';
 import { Buttons } from '../components/Buttons';
 import Icon from '@expo/vector-icons/FontAwesome';
@@ -27,7 +27,7 @@ class TransferFund extends Component {
         };
     }
     setModalVisible(visible) {
-        this.setState({ modalVisible: visible });
+        this.setState({ modalVisible: visible ,Amount:0,Acc:''});
     }
     ConfirmTransfer=()=>{
         if(this.state.PIN=='' || this.state.PIN.length!=4)
@@ -37,12 +37,12 @@ class TransferFund extends Component {
         else
         {
             this.setState({modalVisible:false});
-            //Todo: Apply Fees transaction 
+            //TODO: Apply Fees transaction 
         }
     }
     Transfer = () => {
         var IsValid = true;
-        if (this.state.Amount == '' || this.state.Amount.charAt(0) == '0') {
+        if (this.state.Amount <= 0 ) {
             this.setState({ ValidAmount: false });
             IsValid = false;
         }
@@ -122,10 +122,14 @@ class TransferFund extends Component {
 
                     <Title Text="Transfer Money" />
                     <View>
-                        <DefaultInput
+                        {/*<DefaultInput
                             placeholder="Enter Amount"
                             IconName="money"
                             keyboardType="numeric"
+                            onChangeText={(Amount) => this.setState({ Amount, ValidAmount: true })}
+                        />*/}
+                        <AmountInput
+                            value={this.state.Amount}
                             onChangeText={(Amount) => this.setState({ Amount, ValidAmount: true })}
                         />
                         {this.state.ValidAmount ? null

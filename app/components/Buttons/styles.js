@@ -16,7 +16,7 @@ export default EStyleSheet.create({
         backgroundColor:'transparent',
     },
     Primary:{
-        backgroundColor:'$SecondaryBlue'
+        backgroundColor:'$PrimaryBlue'
     },
     containerDefault:{
         alignItems:'center',              

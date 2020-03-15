@@ -4,7 +4,7 @@ import {StatusBar,Text} from 'react-native';
 import {createStackNavigator,createAppContainer} from 'react-navigation'
 import Home from "./screens/Home";
 import Login from './screens/Login';
-import Profile from './screens/profile';
+import Profile from './screens/Profile';
 import Test from "./screens/Test";
 import BasicRegister from './screens/BasicRegister';
 import CodeActivation from './screens/CodeActivation';
@@ -15,6 +15,11 @@ import ElectricityForm  from "./screens/ElectricityForm";
 import ZainTelecom  from "./screens/ZainTelecom";
 import TransferFund from './screens/TransferFund';
 import TestAnimated from './screens/TestAnimation';
+import QRCodeScreen from './screens/QRCode';
+import Services from './screens/Services';
+import TranHistory from './screens/TranHistory';
+import CardlessWithdrawal from './screens/CardlessWithdrawal';
+import Beneficiary from './screens/Beneficiary';
 
 EStyleSheet.build({
     $PrimaryBlue:'#53acd3',
@@ -46,12 +51,17 @@ const AppStackNavigator = createStackNavigator({
     TestAnimated:TestAnimated,
     BillPayments:BillPayments,
     ElectricityForm:ElectricityForm,
-    ZainTelecom:ZainTelecom
-    //Profile: Profile
+    ZainTelecom:ZainTelecom,
+    QRCodeScreen:QRCodeScreen,
+    Beneficiary:Beneficiary,
+    Services:Services,
+    CardlessWithdrawal:CardlessWithdrawal,
+    TranHistory:TranHistory,
+    Profile: Profile
 },
     {
         headerMode:'none',
-        initialRouteName: "BasicRegister",
+        initialRouteName: "Beneficiary",
         navigationOptions: {
             gesturesEnabled: false,
         },
